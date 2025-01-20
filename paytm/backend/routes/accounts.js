@@ -2,10 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { authMiddleware } = require("../middlewares/user");
 const { Accounts,User } = require("../db");
+require("dotenv").config();
+const MONGO_URI = process.env.MONGO_URI;
 
 const accountsRouter = express.Router();
 mongoose.connect(
-  "mongodb+srv://rohankumar6143:89VfFukDblCAyAL4@cluster0.57rhuig.mongodb.net/paytm"
+    MONGO_URI
 );
 
 accountsRouter.get("/balance", authMiddleware, async (req, res) => {

@@ -1,8 +1,9 @@
 const jwt = require("jsonwebtoken");
 const { User } = require("../db");
-const { JWT_SECRET } = require("../config");
+const MONGO_URI = process.env.MONGO_URI;
 const z = require("zod");
 
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const mySchema = z.object({
     firstName: z.string().min(1).max(50),

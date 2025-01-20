@@ -1,9 +1,18 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-mongoose.connect(
-  "mongodb+srv://rohankumar6143:89VfFukDblCAyAL4@cluster0.57rhuig.mongodb.net/paytm",
-);
+require("dotenv").config();
+
+const MONGO_URI = process.env.MONGO_URI;
+
+mongoose
+  .connect(MONGO_URL)
+  .then(() => {
+    console.log("Connected to MongoDB successfully!");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err.message);
+  });
 
 const userSchema = mongoose.Schema({
   username: {
@@ -46,20 +55,21 @@ userSchema.methods.validatePassword = async function (candidatePassword) {
 const User = mongoose.model("User", userSchema);
 
 const accountsSchema = mongoose.Schema({
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    balance: {
-        type: mongoose.Schema.Types.BigInt,
-        required: true,
-        default: 0
-    }
-})
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  balance: {
+    type: mongoose.Schema.Types.BigInt,
+    required: true,
+    default: 0,
+  },
+});
 
-const Accounts = mongoose.model('Accounts', accountsSchema)
+const Accounts = mongoose.model("Accounts", accountsSchema);
 
 module.exports = {
-  User, Accounts
+  User,
+  Accounts,
 };

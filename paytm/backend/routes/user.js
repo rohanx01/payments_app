@@ -3,10 +3,13 @@ const mongoose = require("mongoose");
 const { User, Accounts } = require("../db");
 const { userAuth, authMiddleware } = require("../middlewares/user");
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../config");
+
+require("dotenv").config();
+const MONGO_URI = process.env.MONGO_URI;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 mongoose.connect(
-  "mongodb+srv://rohankumar6143:89VfFukDblCAyAL4@cluster0.57rhuig.mongodb.net/paytm"
+    MONGO_URI
 );
 
 const userRouter = express.Router();
