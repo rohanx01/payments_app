@@ -101,27 +101,6 @@ node index.js
 
 ---
 
-## **Project Structure**
-
-```plaintext
-payments-app/
-├── frontend/         # React.js frontend
-│   ├── src/
-│   │   ├── pages/    # Signup, Signin, Dashboard, Send components
-│   │   ├── App.js    # Main app file with routes
-│   │   └── index.js  # React DOM entry point
-│   └── package.json
-├── backend/          # Express.js backend
-│   ├── db.js         # Mongoose models for User and Accounts
-│   ├── routes/
-│   │   └── user.js   # User-related API routes
-│   ├── index.js      # Entry point for backend server
-│   ├── middlewares/  # User authentication middleware
-│   └── package.json
-└── README.md         # Project documentation
-```
-
----
 
 ## **API Endpoints**
 
@@ -150,17 +129,5 @@ payments-app/
 - Introduce role-based access control for advanced authorization.
 - Add a loading spinner and error handling on the frontend.
 
----
-
-## **How to Reach Me**
-- **GitHub**: [https://github.com/<your-username>](https://github.com/<your-username>)
-- **LinkedIn**: [https://linkedin.com/in/<your-profile>](https://linkedin.com/in/<your-profile>)
-
----
-
-## **Screenshots**
-(Include some key screenshots of your app: signup page, dashboard, etc.)
-
----
-
+--
 Feel free to customize this further! Let me know if you'd like help with any section.
